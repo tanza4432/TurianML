@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_splash_screen/menu/analyze.dart';
 import 'package:flutter_splash_screen/menu/information.dart';
 
 class screen extends StatelessWidget {
@@ -11,12 +12,23 @@ class screen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              button("ข้อมูลต้นทุเรียน", Colors.greenAccent,
-                  Icons.auto_stories_outlined),
+              button(
+                "ข้อมูลต้นทุเรียน",
+                Colors.greenAccent,
+                Icons.auto_stories_outlined,
+                Detail(
+                    "https://medthai.com/%E0%B8%97%E0%B8%B8%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/"),
+              ),
               SizedBox(height: 25),
-              button("วิธีการปลูก / รักษา", Colors.greenAccent, Icons.article_outlined),
+              button(
+                "วิธีการปลูก / รักษา",
+                Colors.greenAccent,
+                Icons.article_outlined,
+                Detail("https://www.sanook.com/home/29873/"),
+              ),
               SizedBox(height: 25),
-              button("วิเคราะห์รากเน่าโคนเน่า", Colors.greenAccent, Icons.science_outlined),
+              button("วิเคราะห์รากเน่าโคนเน่า", Colors.greenAccent,
+                  Icons.science_outlined, analyze()),
             ],
           ),
         ),
@@ -26,19 +38,20 @@ class screen extends StatelessWidget {
 }
 
 class button extends StatelessWidget {
-  button(this.text, this.colortheme, this.icon);
+  button(this.text, this.colortheme, this.icon, this.link);
   String text;
   var colortheme;
   var icon;
+  var link;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => WebViewExample()),
-  );
+          context,
+          MaterialPageRoute(builder: (context) => link),
+        );
       },
       child: Container(
         width: 300,
