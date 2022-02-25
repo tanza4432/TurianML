@@ -30,12 +30,12 @@ class screen extends StatelessWidget {
               SizedBox(height: 25),
               button(
                 "วิธีการปลูก / รักษา",
-                Colors.greenAccent,
+                Colors.lightBlueAccent[400],
                 Icons.article_outlined,
                 Detail("https://www.sanook.com/home/29873/"),
               ),
               SizedBox(height: 25),
-              button("วิเคราะห์รากเน่าโคนเน่า", Colors.greenAccent,
+              button("วิเคราะห์โรคทุเรียน", Colors.cyanAccent[400],
                   Icons.science_outlined, analyze()),
             ],
           ),
@@ -66,9 +66,9 @@ class button extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-                offset: Offset(0.0, 20.0),
-                blurRadius: 30.0,
-                color: Colors.black12)
+                offset: Offset(5.0, 10.0),
+                blurRadius: 15.0,
+                color: Colors.black)
           ],
           color: Colors.white,
           borderRadius: BorderRadius.circular(22.0),
@@ -84,16 +84,23 @@ class button extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 22,
+                  fontWeight: FontWeight.bold
                 ),
               ),
               decoration: BoxDecoration(
-                color: colortheme,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(95.0),
-                  topLeft: Radius.circular(95.0),
-                  bottomRight: Radius.circular(300.0),
-                ),
-              ),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(95.0),
+                    topLeft: Radius.circular(95.0),
+                    bottomRight: Radius.circular(350.0),
+                  ),
+                  gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      colortheme,
+                      Colors.white,
+                    ],
+                  )),
             ),
             Icon(
               icon,
