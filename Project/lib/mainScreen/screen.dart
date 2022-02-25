@@ -7,6 +7,14 @@ class screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/bg.jpg"),
+            colorFilter: ColorFilter.mode(
+                Colors.black.withOpacity(0.7), BlendMode.dstATop),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
